@@ -9,6 +9,9 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ProfileComponent } from './components/profile/profile.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
+import { IndexComponent } from './components/address/index/index.component';
+import { CreateComponent } from './components/address/create/create.component';
+import { EditComponent } from './components/address/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,13 @@ import { ResponseResetComponent } from './components/password/response-reset/res
     RegistrationComponent,
     ProfileComponent,
     RequestResetComponent,
-    ResponseResetComponent
+    ResponseResetComponent,
+    IndexComponent,
+    CreateComponent,
+    EditComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
