@@ -12,6 +12,7 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { IndexComponent } from './components/address/index/index.component';
 import { CreateComponent } from './components/address/create/create.component';
 import { EditComponent } from './components/address/edit/edit.component';
+import { IndexComponent as AuditIndexComponent } from './components/audit/index/index.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EditComponent } from './components/address/edit/edit.component';
     IndexComponent,
     CreateComponent,
     EditComponent,
+    AuditIndexComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
