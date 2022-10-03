@@ -36,15 +36,15 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     return this.apiCommunicationService.registration(this.form).subscribe({
-        next: (response : any) => {
-        this.tokenService.handle(response.access_token);
-        this.authService.changeAuthStatus(true);
-        this.router.navigateByUrl('/profile')
-        },
-        error: (response : any) => {
-          this.errors = response.error.errors;
-        },
-      });
+      next: (response : any) => {
+      this.tokenService.handle(response.access_token);
+      this.authService.changeAuthStatus(true);
+      this.router.navigateByUrl('/profile')
+      },
+      error: (response : any) => {
+        this.errors = response.error.errors;
+      },
+    });
   }
 
 }

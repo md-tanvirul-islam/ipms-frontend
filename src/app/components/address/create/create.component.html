@@ -1,1 +1,36 @@
-<p>create works!</p>
+<div class="card mt-2">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">
+                Add New Address
+            </div>
+            <div class="col text-end">
+                <a routerLink="/address/index" class="btn btn-sm btn-info">Index</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form #ipAddressCreateForm=ngForm (ngSubmit)="onSubmit()">
+            <div class="row mb-3">
+                <label for="ip" class="col-sm-2 col-form-label">IP Address</label>
+                <div class="col-sm-10">
+                    <input type="text" name="ip" class="form-control" id="ip" [(ngModel)]="form.ip" required>
+                    <p class="text-danger" [hidden]="!errors.ip">{{ errors.ip }}</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="label" class="col-sm-2 col-form-label">Label</label>
+                <div class="col-sm-10">
+                    <input type="text" name="label" class="form-control" id="label" [(ngModel)]="form.label" required>
+                    <p class="text-danger" [hidden]="!errors.label">{{ errors.label }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-primary m-2"
+                        [disabled]="!ipAddressCreateForm.valid">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

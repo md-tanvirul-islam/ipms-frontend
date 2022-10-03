@@ -49,7 +49,7 @@ const routes: Routes = [
     canActivate: [AfterLoginService]
   },
   {
-    path: 'address/edit',
+    path: 'address/edit/:addressId',
     component: EditComponent,
     canActivate: [AfterLoginService]
   },
