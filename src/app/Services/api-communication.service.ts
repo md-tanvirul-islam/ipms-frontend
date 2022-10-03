@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class ApiCommunicationService {
   private baseUrl = 'http://127.0.0.1:8000/api';
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   login(data : {}) {
     return this.http.post(`${this.baseUrl}/login`, data)
@@ -14,6 +16,10 @@ export class ApiCommunicationService {
 
   registration(data : {}) {
     return this.http.post(`${this.baseUrl}/registration`, data)
+  }
+
+  profile() {
+    return this.http.get(`${this.baseUrl}/user`)
   }
 
   addressIndex() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  public profile: any;
+  public error: any;
+
+  constructor(
+    private apiCommunicationService: ApiCommunicationService
+  ) { }
 
   ngOnInit(): void {
+    this.profileData();
+  }
+
+  profileData() {
+    return this.apiCommunicationService.profile()
+    .subscribe({
+      next: (response: any) => {
+        this.profile = response.data
+        console.log(this.profile);
+      },
+      error: (response : any) => {
+        this.error = response.error.error
+      },
+    });
   }
 
 }
