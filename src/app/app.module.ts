@@ -15,6 +15,7 @@ import { IndexComponent } from './components/address/index/index.component';
 import { CreateComponent } from './components/address/create/create.component';
 import { EditComponent } from './components/address/edit/edit.component';
 import { IndexComponent as AuditIndexComponent } from './components/audit/index/index.component';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { IndexComponent as AuditIndexComponent } from './components/audit/index/
     EditComponent,
     AuditIndexComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, NotifierModule],
   providers: [],
   bootstrap: [AppComponent],
 })
