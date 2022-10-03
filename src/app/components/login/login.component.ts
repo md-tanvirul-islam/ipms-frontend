@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
 
 @Component({
   selector: 'app-login',
@@ -11,19 +11,21 @@ export class LoginComponent implements OnInit {
     email: null,
     password: null,
   };
-  constructor(private http: HttpClient) {}
+
+  public error = null;
+
+  constructor(private apiCommunication: ApiCommunicationService) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    return this.http
-      .post('http://127.0.0.1:8000/api/login', this.form)
+    return this.apiCommunication.login(this.form)
       .subscribe({
         next: (data) => {
           console.log(data);
         },
         error: (error) => {
-          console.error('There was an error!', error);
+          this.error = error.error.error
         },
       });
   }
