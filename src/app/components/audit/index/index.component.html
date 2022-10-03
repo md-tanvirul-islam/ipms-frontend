@@ -1,1 +1,48 @@
-<p>index works!</p>
+<div class="card mt-2">
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          Audit
+        </div>
+        <div class="col text-end">
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">user_type </th>
+                  <th scope="col">user_id </th>
+                  <th scope="col">event </th>
+                  <th scope="col">auditable_type</th>
+                  <th scope="col">auditable_id</th>
+                  <th scope="col">old_values</th>
+                  <th scope="col">new_values </th>
+                  <th scope="col">url </th>
+                  <th scope="col">ip_address </th>
+                  <th scope="col">tags </th>
+                  <th scope="col">user_agent </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let audit of audits; let i = index;">
+                  <th scope="row">{{i}}</th>
+                  <td>{{ audit.user_type }}</td>
+                  <td>{{ audit.user_id }}</td>
+                  <td>{{ audit.event }}</td>
+                  <td>{{ audit.auditable_type }}</td>
+                  <td>{{ audit.auditable_id }}</td>
+                  <td>{{ audit.old_values }}</td>
+                  <td>{{ audit.new_values }}</td>
+                  <td>{{ audit.url }}</td>
+                  <td>{{ audit.ip_address }}</td>
+                  <td>{{ audit.tags }}</td>
+                  <td>{{ audit.user_agent }}</td>
+                </tr>
+              </tbody>
+        </table>
+    </div>
+  </div>
+

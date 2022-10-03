@@ -11,7 +11,9 @@ export class IndexComponent implements OnInit {
   public addresses: any;
   public error: any;
 
-  constructor(private apiCommunicationService: ApiCommunicationService) {}
+  constructor(
+    private apiCommunicationService: ApiCommunicationService
+  ) { }
 
   ngOnInit(): void {
     this.addressIndex();

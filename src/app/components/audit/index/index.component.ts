@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  public audits: any;
+  public error: any;
+
+  constructor(
+    private apiCommunicationService: ApiCommunicationService
+  ) { }
 
   ngOnInit(): void {
+    this.auditIndex();
+  }
+
+  auditIndex() {
+    return this.apiCommunicationService.auditIndex()
+    .subscribe({
+      next: (response: any) => {
+        this.audits = response.data
+      },
+      error: (response : any) => {
+        this.error = response.error.error
+      },
+    });
   }
 
 }
