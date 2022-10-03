@@ -9,43 +9,54 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { IndexComponent as AuditIndexComponent } from './components/audit/index/index.component';
+import { BeforeLoginService } from './Services/before-login.service';
+import { AfterLoginService } from './Services/after-login.service';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [BeforeLoginService]
   },
   {
     path: 'registration',
     component: RegistrationComponent,
+    canActivate: [BeforeLoginService]
   },
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'request-password-reset',
     component: RequestResetComponent,
+    canActivate: [BeforeLoginService]
   },
   {
     path: 'response-password-reset',
     component: ResponseResetComponent,
+    canActivate: [BeforeLoginService]
   },
   {
     path: 'address/index',
     component: IndexComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'address/create',
     component: CreateComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'address/edit',
     component: EditComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: 'audit/index',
     component: AuditIndexComponent,
+    canActivate: [AfterLoginService]
   },
 ];
 

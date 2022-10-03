@@ -7,11 +7,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="loggedIn">
                     <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="address/index">Ip
                         Address</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="loggedIn">
                     <a class="nav-link" routerLinkActive="active" routerLink="audit/index">Audit</a>
                 </li>
             </ul>
