@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
+import { AuthService } from 'src/app/Services/auth.service';
+import { TokenService } from 'src/app/Services/token.service';
 
 @Component({
   selector: 'app-registration',
@@ -21,19 +24,25 @@ export class RegistrationComponent implements OnInit {
     password: ''
   };
 
-  constructor(private apiCommunication: ApiCommunicationService) { }
+  constructor(
+    private apiCommunicationService: ApiCommunicationService,
+    private tokenService: TokenService,
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    return
-      this.apiCommunication.registration(this.form).subscribe({
-        next: (data) => {
-          console.log(data);
+    return this.apiCommunicationService.registration(this.form).subscribe({
+        next: (response : any) => {
+        this.tokenService.handle(response.access_token);
+        this.authService.changeAuthStatus(true);
+        this.router.navigateByUrl('/profile')
         },
-        error: (error) => {
-          this.errors = error.error.errors;
+        error: (response : any) => {
+          this.errors = response.error.errors;
         },
       });
   }

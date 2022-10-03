@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
+import { AuthService } from 'src/app/Services/auth.service';
 import { TokenService } from 'src/app/Services/token.service';
 
 @Component({
@@ -17,7 +19,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private apiCommunicationService: ApiCommunicationService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {}
@@ -27,6 +31,8 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (response : any) => {
           this.tokenService.handle(response.access_token);
+          this.authService.changeAuthStatus(true);
+          this.router.navigateByUrl('/profile')
         },
         error: (response : any) => {
           this.error = response.error.error

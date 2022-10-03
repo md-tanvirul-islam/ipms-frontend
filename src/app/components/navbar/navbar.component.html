@@ -16,9 +16,9 @@
                 </li>
             </ul>
         </div>
-        <a class="navbar-brand" routerLink="login">Login</a>
-        <a class="navbar-brand" href="#">Logout</a>
-        <a class="navbar-brand" routerLink="registration">Registration</a>
-        <a class="navbar-brand" routerLink="profile">Profile</a>
+        <a class="navbar-brand" routerLink="login" *ngIf="!loggedIn">Login</a>
+        <a class="navbar-brand" href="#" (click)="logOut($event)" *ngIf="loggedIn">Logout</a>
+        <a class="navbar-brand" routerLink="registration" *ngIf="!loggedIn">Registration</a>
+        <a class="navbar-brand" routerLink="profile" *ngIf="loggedIn">Profile</a>
     </div>
 </nav>
