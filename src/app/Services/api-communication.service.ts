@@ -28,8 +28,8 @@ export class ApiCommunicationService {
     return this.http.get(`${this.baseUrl}/addresses/${id}`)
   }
 
-  addressUpdate(data : {}) {
-    return this.http.put(`${this.baseUrl}/addresses`, data)
+  addressUpdate(data : {}, id : number) {
+    return this.http.put(`${this.baseUrl}/addresses/${id}`, data)
   }
 
   auditIndex() {

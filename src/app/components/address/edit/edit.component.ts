@@ -10,17 +10,13 @@ import { ApiCommunicationService } from 'src/app/Services/api-communication.serv
 })
 export class EditComponent implements OnInit {
 
-  public form = {
-    ip: null,
-    label: null
-  };
-
-  public errors : {ip: string, label: string} = {
+  public errors : any = {
     ip: '',
     label: ''
   };
 
   addressId: any;
+  address: any;
 
   constructor(
     private apiCommunicationService: ApiCommunicationService,
@@ -35,7 +31,7 @@ export class EditComponent implements OnInit {
     this.apiCommunicationService.addressFind(this.addressId)
     .subscribe({
       next: (response: any) => {
-        console.log(response);
+        this.address = response.data;
       },
       error: (response: any) => {
         this.notifierService.notify('error', response.statusText);
@@ -43,8 +39,12 @@ export class EditComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    return this.apiCommunicationService.addressUpdate(this.form)
+  onSubmit(ip: string, label: string) {
+    const form = {
+      ip: ip,
+      label: label
+    };
+    return this.apiCommunicationService.addressUpdate(form, this.addressId)
     .subscribe({
       next: (response: any) => {
         if (response.status === 'Success') {
