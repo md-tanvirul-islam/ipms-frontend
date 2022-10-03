@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
+import { TokenService } from 'src/app/Services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -14,18 +15,21 @@ export class LoginComponent implements OnInit {
 
   public error = null;
 
-  constructor(private apiCommunication: ApiCommunicationService) {}
+  constructor(
+    private apiCommunicationService: ApiCommunicationService,
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {}
 
   onSubmit() {
-    return this.apiCommunication.login(this.form)
+    return this.apiCommunicationService.login(this.form)
       .subscribe({
-        next: (data) => {
-          console.log(data);
+        next: (response : any) => {
+          this.tokenService.handle(response.access_token);
         },
-        error: (error) => {
-          this.error = error.error.error
+        error: (response : any) => {
+          this.error = response.error.error
         },
       });
   }
