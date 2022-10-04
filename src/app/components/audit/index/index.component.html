@@ -1,48 +1,114 @@
 <div class="card mt-2">
-    <div class="card-header">
-      <div class="row">
-        <div class="col">
-          Audit
-        </div>
-        <div class="col text-end">
-        </div>
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        Audit
+      </div>
+      <div class="col text-end">
       </div>
     </div>
-    <div class="card-body">
-        <table class="table table-bordered table-responsive">
-            <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">user_type </th>
-                  <th scope="col">user_id </th>
-                  <th scope="col">event </th>
-                  <th scope="col">auditable_type</th>
-                  <th scope="col">auditable_id</th>
-                  <th scope="col">old_values</th>
-                  <th scope="col">new_values </th>
-                  <th scope="col">url </th>
-                  <th scope="col">ip_address </th>
-                  <th scope="col">tags </th>
-                  <th scope="col">user_agent </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let audit of audits; let i = index;">
-                  <th scope="row">{{i}}</th>
-                  <td>{{ audit.user_type }}</td>
-                  <td>{{ audit.user_id }}</td>
-                  <td>{{ audit.event }}</td>
-                  <td>{{ audit.auditable_type }}</td>
-                  <td>{{ audit.auditable_id }}</td>
-                  <td>{{ audit.old_values }}</td>
-                  <td>{{ audit.new_values }}</td>
-                  <td>{{ audit.url }}</td>
-                  <td>{{ audit.ip_address }}</td>
-                  <td>{{ audit.tags }}</td>
-                  <td>{{ audit.user_agent }}</td>
-                </tr>
-              </tbody>
+  </div>
+  <div class="card-body">
+      <table class="table table-bordered table-responsive">
+          <thead>
+              <tr>
+                <th class="text-center" scope="col">#</th>
+                <th class="text-center" scope="col">User Id</th>
+                <th class="text-center" scope="col">Event</th>
+                <th class="text-center" scope="col">Auditable Type / Modal</th>
+                <th class="text-center" scope="col">Auditable Id</th>
+                <th class="text-center" scope="col">URL</th>
+                <th class="text-center" scope="col">IP Address</th>
+                <th class="text-center" scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let audit of audits; let i = index;">
+                <th class="text-center">{{i}}</th>
+                <td class="text-center">{{ audit.user_id }}</td>
+                <td class="text-center">{{ audit.event }}</td>
+                <td class="text-center">{{ audit.auditable_type }}</td>
+                <td class="text-center">{{ audit.auditable_id }}</td>
+                <td class="text-center">{{ audit.url }}</td>
+                <td class="text-center">{{ audit.ip_address }}</td>
+                <td class="text-center">
+                  <!-- <a class="btn btn-sm btn-info" href="" title="Details"><fa-icon [icon]="faEye"></fa-icon></a> -->
+                  <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Details">
+                    <fa-icon [icon]="faEye"></fa-icon>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+      </table>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Audit Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tr>
+            <th>User Type</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>User Id</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>Event</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>Auditable type</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>Auditable id</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>Old Values</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>New Values</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>URL</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>IP Address</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>User Agent</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>Tags</th>
+            <td>#</td>
+          </tr>
+          <tr>
+            <th>When</th>
+            <td>#</td>
+          </tr>
         </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
+</div>
 

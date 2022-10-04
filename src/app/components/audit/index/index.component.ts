@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
+import {faEye} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-index',
@@ -10,6 +11,7 @@ export class IndexComponent implements OnInit {
 
   public audits: any;
   public error: any;
+  public faEye = faEye;
 
   constructor(
     private apiCommunicationService: ApiCommunicationService

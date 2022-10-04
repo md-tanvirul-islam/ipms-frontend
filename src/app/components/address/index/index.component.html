@@ -13,19 +13,21 @@
       <table class="table table-bordered">
           <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Address</th>
-                <th scope="col">Label</th>
-                <th scope="col">Action</th>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Address</th>
+                <th scope="col" class="text-center">Label</th>
+                <th scope="col" class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let address of addresses; let i = index;">
-                <th scope="row">{{i}}</th>
-                <td>{{ address.ip }}</td>
-                <td>{{ address.label }}</td>
-                <td>
-                  <a routerLink="/address/edit/{{address.id}}" class="btn btn-sm btn-warning">Edit</a>
+                <th class="text-center">{{i}}</th>
+                <td class="text-center">{{ address.ip }}</td>
+                <td class="text-center">{{ address.label }}</td>
+                <td class="text-center">
+                  <a routerLink="/address/edit/{{address.id}}" class="btn btn-sm btn-warning" title="Edit">
+                    <fa-icon [icon]="faPencilRuler"></fa-icon>
+                  </a>
                 </td>
               </tr>
             </tbody>

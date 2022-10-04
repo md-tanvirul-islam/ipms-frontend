@@ -17,6 +17,7 @@ import { EditComponent } from './components/address/edit/edit.component';
 import { IndexComponent as AuditIndexComponent } from './components/audit/index/index.component';
 import { NotifierModule } from 'angular-notifier';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     EditComponent,
     AuditIndexComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, NotifierModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, NotifierModule, ReactiveFormsModule, FontAwesomeModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCommunicationService } from 'src/app/Services/api-communication.service';
+import { faPencilRuler } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-index',
@@ -10,6 +11,7 @@ export class IndexComponent implements OnInit {
 
   public addresses: any;
   public error: any;
+  public faPencilRuler = faPencilRuler;
 
   constructor(
     private apiCommunicationService: ApiCommunicationService
