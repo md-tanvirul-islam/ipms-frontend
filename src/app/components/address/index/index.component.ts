@@ -32,4 +32,8 @@ export class IndexComponent implements OnInit {
       },
     });
   }
+
+  serialNumber(i: number): number {
+    return ++i;
+  }
 }

@@ -19,24 +19,24 @@
                 <th class="text-center" scope="col">Auditable Id</th>
                 <th class="text-center" scope="col">URL</th>
                 <th class="text-center" scope="col">IP Address</th>
-                <th class="text-center" scope="col">Action</th>
+                <!-- <th class="text-center" scope="col">Action</th> -->
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let audit of audits; let i = index;">
-                <th class="text-center">{{i}}</th>
+                <th class="text-center">{{ serialNumber(i) }}</th>
                 <td class="text-center">{{ audit.user_id }}</td>
                 <td class="text-center">{{ audit.event }}</td>
                 <td class="text-center">{{ audit.auditable_type }}</td>
                 <td class="text-center">{{ audit.auditable_id }}</td>
                 <td class="text-center">{{ audit.url }}</td>
                 <td class="text-center">{{ audit.ip_address }}</td>
-                <td class="text-center">
-                  <!-- <a class="btn btn-sm btn-info" href="" title="Details"><fa-icon [icon]="faEye"></fa-icon></a> -->
+                <!-- <td class="text-center">
+                  <a class="btn btn-sm btn-info" href="" title="Details"><fa-icon [icon]="faEye"></fa-icon></a>
                   <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Details">
                     <fa-icon [icon]="faEye"></fa-icon>
                   </button>
-                </td>
+                </td> -->
               </tr>
             </tbody>
       </table>

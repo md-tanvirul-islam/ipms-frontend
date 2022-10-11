@@ -21,7 +21,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let address of addresses; let i = index;">
-                <th class="text-center">{{i}}</th>
+                <th class="text-center">{{serialNumber(i)}}</th>
                 <td class="text-center">{{ address.ip }}</td>
                 <td class="text-center">{{ address.label }}</td>
                 <td class="text-center">
