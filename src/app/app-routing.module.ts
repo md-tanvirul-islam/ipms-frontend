@@ -12,6 +12,11 @@ import { AfterLoginService } from './Services/after-login.service';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/address/index',
+  },
+  {
     path: 'login',
     component: LoginComponent,
     canActivate: [BeforeLoginService]

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         next: (response : any) => {
           this.tokenService.handle(response.access_token);
           this.authService.changeAuthStatus(true);
-          this.router.navigateByUrl('/profile')
+          this.router.navigateByUrl('/address/index')
         },
         error: (response : any) => {
           this.error = response.error.error
